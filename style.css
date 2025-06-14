@@ -1,0 +1,738 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Контейнер header'a */
+.header-container {
+    position: relative;
+    max-width: 1450px;
+    height: 300px;
+    margin: 0 auto 5px; /* Отступ снизу 5px */
+}
+
+/* Первая навигационная панель */
+.full-width-nav {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: #808080;
+    margin-bottom: 5px; /* Отступ снизу 5px */
+}
+
+/* Вторая навигационная панель */
+.full-width-nav2 {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: #ebb90c;
+    margin-top: 5px; /* Отступ сверху 5px */
+    margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+
+/* Общие стили для навигационных панелей */
+.nav-bar, .nav-bar2 {
+    max-width: 1450px;
+    height: 50px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: flex-end; /* Выравнивание по правому краю */
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 15px;
+  margin-right: 40px;
+  position: relative;
+  top: -2px;
+  color: #ddd;
+}
+
+.nav-buttons ul {
+  display: flex;
+  gap: 5px; /* Еще меньше расстояние */
+  margin: 0;
+  padding: 0;
+  list-style: none; /* Отключаем стандартные маркеры */
+}
+
+.nav-buttons li {
+  position: relative;
+  padding-left: 10px; /* Место для маркера */
+}
+
+.nav-buttons li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px; /* Размер маркера */
+  height: 8px; /* Размер маркера */
+  background-color: currentColor; /* Цвет как у текста */
+  border-radius: 50%; /* Круглый маркер */
+}
+.nav-buttons a {
+  text-decoration: none;
+  color: inherit;
+  padding: 5px 10px;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.nav-buttons a:hover {
+  color: #d9b960;       /* Цвет при наведении */
+  text-decoration: none;
+}
+
+.rss {
+  margin: 0 20px 0; /* auto сдвигает последующие элементы вправо */
+}
+
+.rss a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.twitter {
+  margin-right: 0px;
+}
+
+.twitter a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.rss img, .twitter img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  vertical-align: middle; /* Ключевое свойство */
+  position: relative;
+  top: -2px; /* Точная подстройка */
+}
+
+
+.nav-buttons button:hover {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+.nav-buttons2 .nav-button {
+  background-color: #ffd954; /* Желтый фон */
+  color: #333; /* Темный текст для контраста */
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
+
+.nav-buttons2 .nav-rub {
+    color: #333333; /* Желтый цвет как у кнопки */
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    margin-left: 2px;
+}
+
+/* Состояния ссылки */
+.nav-buttons2 a:hover {
+    color: #ffcc33;
+}
+
+/* Стили для header */
+header {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+header img:first-child {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; /* Игнорирует пропорции */
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+header img:last-child {
+    position: absolute; /* Абсолютное позиционирование */
+    left: 20px; /* Отступ от левого края */
+    top: 50%; /* Центрирование по вертикали */
+    transform: translateY(-50%); /* Точное центрирование */
+    z-index: 2;
+    max-height: 500px;
+    width: 400px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.content-background-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: 
+        /* Фоновое изображение (центрированное, без повторения) */
+        url('images/background.jpg') no-repeat center top,
+        /* Градиент для плавного перехода в белый */
+        linear-gradient(to bottom, 
+            rgba(255,255,255,0) 70%, 
+            rgba(255,255,255,1) 100%);
+    background-size: cover;
+    z-index: -1;
+    padding-top: 1px; /* Небольшой отступ сверху */
+    margin-top: -1px; /* Компенсируем отступ */
+}
+
+.content-wrapper {
+    grid-row: 2;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    max-width: 1450px;
+    margin: 0 auto;
+    background-color: white; /* Фон основного содержимого */
+    position: relative;
+}
+
+.main-content {
+    grid-column: 1 / 9;
+    margin-left: 20px;
+}
+
+.sidebar {
+    grid-column: 9 / -1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.main-content {
+    grid-column: 1 / 9;
+    width: 100%; /* Фиксируем ширину */
+    padding-right: 20px; /* Отступ от сайдбара */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+.featured-post {
+  position: relative;
+  width: 100%;
+  height: 550px; /* Высота блока */
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.featured-content {
+  position: absolute;
+  bottom: 0; /* Блок остается внизу */
+  left: 0;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Текст прижат к ВЕРХУ внутри блока */
+  text-align: left;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.featured-content h2 {
+  font-size: 1.3rem;
+  margin: 0 0 10px 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  align-self: flex-start; /* Заголовок прижат к левому краю */
+}
+
+.featured-content p {
+  font-size: 1rem;
+  max-width: 100%;
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.slide-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 60px;
+  background-color: rgba(0,0,0,0.2); /* Практически прозрачные */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  opacity: 0.3; /* Дополнительная прозрачность */
+  backdrop-filter: blur(2px); /* Легкое размытие фона */
+}
+
+
+.prev-arrow {
+  left: 10px; /* Ближе к краю */
+}
+
+.next-arrow {
+  right: 10px; /* Ближе к краю */
+}
+
+.post {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0px auto 30px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 10px;  
+}
+
+/* Шапка поста */
+.post-header {
+  margin-bottom: 18px;
+}
+
+.post-title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+}
+
+/* Мета-данные с иконками */
+.post-meta {
+  display: flex;
+  gap: 25px;
+  font-size: 14px;
+  color: #666;
+  align-items: center;
+}
+
+.post-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.post-meta img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.post-edit a {
+  color: #dda808; /* Ярко-жёлтый цвет */
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  margin-left: 5px;
+}
+
+.post-edit a:hover {
+  color: #FFA000; /* Темнее при наведении */
+  text-decoration: underline;
+}
+
+/* Содержимое поста */
+.post-content {
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.post-content p {
+  margin: 0 0 10px 0;
+}
+
+/* Стили для контейнера с кнопкой */
+.post-actions {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* Стили для самой кнопки */
+.post-button {
+  display: inline-block;
+  padding: 6px 25px;
+  background-color: #7a7a7a; /* Жёлтый цвет */
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: #FFB300; /* Темнее при наведении */
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.post-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Стили для виджета с иконками */
+.widget {
+  width: 100%; /* Занимает всю ширину сайдбара */
+}
+
+.widget img {
+  width: calc(100% / 7); /* Равномерное распределение по 7 иконкам */
+  height: auto; /* Сохранение пропорций */
+  display: inline-block; /* Расположение в ряд */
+  padding: 12px; /* Небольшие отступы вокруг иконок */
+  box-sizing: border-box; /* Учет padding в ширине */
+  transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+  margin: -2px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.search-field {
+  width: 100%;
+  padding: 8px 35px 8px 12px; /* Правая padding для кнопки */
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 20px;
+  box-sizing: border-box;
+  height: 50px;
+}
+
+.search-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.search-button img {
+  width: 16px;
+  height: 16px;
+  transition: opacity 0.3s;
+}
+
+.image-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.widgetimage1, .widgetimage2 {
+  flex: 1; /* Равномерное распределение пространства */
+  min-width: 0; /* Важно для корректного масштабирования */
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.search-field:focus {
+  border-color: #FFB300;
+}
+
+.widget img:hover {
+  opacity: 0.8; /* Эффект при наведении */
+}
+
+.best-video {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.best-video img {
+  width: 105.2%;
+  height: 80px;
+  display: block;
+  margin-left: -12px;
+}
+
+.best-video::after {
+  content: "ЛУЧШЕЕ ВИДЕО";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: left;
+  margin-left: 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.video-widget {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: #000000;
+    padding: 15px;
+}
+
+.video-title {
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    text-align: left;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Соотношение 16:9 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 30px 0;
+}
+
+figure.image-with-caption {
+    text-align: center;
+    margin: 20px 0;
+}
+
+figure.image-with-caption img {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+/* Мобильные стили (до 768px) */
+@media only screen and (max-width: 768px) {
+    /* Общие стили */
+    body {
+        font-size: 16px;
+    }
+    
+    /* Контейнер header'a */
+    .header-container {
+        height: auto;
+        margin-bottom: 3px;
+    }
+    
+    /* Навигационные панели */
+    .nav-bar, .nav-bar2 {
+        height: 40px;
+        padding: 0 10px;
+        font-size: 10px;
+    }
+    
+    .nav-buttons {
+        margin-right: 10px;
+        gap: 5px;
+    }
+    
+    .nav-buttons ul {
+        gap: 2px;
+    }
+    
+    .nav-buttons li {
+        padding-left: 8px;
+    }
+    
+    .nav-buttons li::before {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .rss, .twitter {
+        margin: 0 5px;
+    }
+    
+    /* Шапка сайта */
+    header {
+        height: 200px;
+    }
+    
+    header img:last-child {
+        width: 200px;
+        left: 10px;
+    }
+    
+    /* Основной контент */
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .main-content, .sidebar {
+        grid-column: 1 / -1;
+        margin-left: 0;
+        padding-right: 0;
+    }
+    
+    /* Избранный пост */
+    .featured-post {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+    
+    .featured-content {
+        height: 120px;
+        padding: 8px;
+    }
+    
+    .featured-content h2 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+    
+    .featured-content p {
+        font-size: 0.8rem;
+    }
+    
+    /* Стрелки слайдера */
+    .slide-arrow {
+        width: 30px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    /* Посты */
+    .post {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+    }
+    
+    .post-title {
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+    
+    .post-meta {
+        gap: 15px;
+        font-size: 12px;
+    }
+    
+    .post-content {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Виджеты */
+    .widget img {
+        width: calc(100% / 7);
+        padding: 8px;
+    }
+    
+    .search-field {
+        font-size: 16px;
+        height: 40px;
+    }
+    
+    .image-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .widgetimage1, .widgetimage2 {
+        max-height: 0px;
+    }
+    
+    .best-video img {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .best-video::after {
+        font-size: 18px;
+        margin-left: 40px;
+    }
+    
+    .video-widget {
+        padding: 10px;
+    }
+    
+    .video-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    /* Кнопки */
+    .nav-buttons2 .nav-button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .post-button {
+        padding: 5px 15px;
+        font-size: 16px;
+    }
+}
