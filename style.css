@@ -582,7 +582,7 @@ figcaption {
     
     /* Контейнер header'a */
     .header-container {
-        height: auto;
+        height: 300px;
         margin-bottom: 3px;
     }
     
